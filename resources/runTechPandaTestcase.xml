@@ -3,7 +3,9 @@
 
   <test name="Run on Firefox Browser">
     <classes>
-      <class name="com.techpanda.account.Level_01_Dont_Repeat_Yourself"/>
+      <class name="com.techpanda.account.Level_02_Apply_BasePage_I"/>
+       <class name="com.techpanda.account.Level_02_Apply_BasePage_II"/>
+        <class name="com.techpanda.account.Level_02_Apply_BasePage_III"/>
     </classes>
   </test> 
 </suite> 
