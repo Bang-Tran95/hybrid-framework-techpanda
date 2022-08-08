@@ -12,107 +12,118 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import commons.BasePage;
+import pageObjects.user.HomePageObject;
+import pageObjects.user.LoginPageObject;
+import pageObjects.user.MyDashBoardPageObject;
 
-public class Level_03_Apply_Page_Object_Pattern extends BasePage {
+public class Level_03_Apply_Page_Object_Pattern {
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
+
+	HomePageObject homePage;
+	LoginPageObject loginPage;
+	MyDashBoardPageObject myDashboardPage;
 
 	@BeforeClass
 	public void beforeClass() {
 		System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
 		driver = new FirefoxDriver();
-
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
+		driver.get("http://live.techpanda.org");
+		homePage = new HomePageObject(driver);
 	}
 
 	@Test
 	public void TC_01_LoginWithEmptyEmailAndPassword() {
 
-		openPageUrl(driver, "http://live.techpanda.org/");
-		clickToElement(driver, "//div[@class='footer']//a[text()='My Account']");
+		homePage.clickTToMyAccountLink();
+		loginPage = new LoginPageObject(driver);
 
-		sendkeyToElement(driver, "//input[@id='email']", "");
-		sendkeyToElement(driver, "//input[@id='pass']", "");
-		clickToElement(driver, "//button[@id='send2']");
+		loginPage.inputToEmailAddressTextbox("");
+		loginPage.inputToPasswordTextbox("");
+		loginPage.clickToLoginButton();
 
-		assertEquals(getTextElement(driver, "//div[@id='advice-required-entry-email']"),
-				"This is a required field.");
-		assertEquals(getTextElement(driver, "//div[@id='advice-required-entry-pass']"),
-				"This is a required field.");
+		assertEquals(loginPage.getEmailAddressEmptyErrorMessage(), "This is a required field.");
+		assertEquals(loginPage.getPasswordAddressEmptyErrorMessage(), "This is a required field.");
 
 	}
 
 	@Test
 	public void TC_02_LoginWithInvalidEmail() {
-		openPageUrl(driver, "http://live.techpanda.org/");
-		clickToElement(driver, "//div[@class='footer']//a[text()='My Account']");
 
-		sendkeyToElement(driver, "//input[@id='email']", "123@456.789");
-		sendkeyToElement(driver, "//input[@id='pass']", "123456");
-		clickToElement(driver, "//button[@id='send2']");
+		homePage.clickTToMyAccountLink();
+		loginPage = new LoginPageObject(driver);
 
-		assertEquals(getTextElement(driver, "//div[@id='advice-validate-email-email']"),
+		loginPage.inputToEmailAddressTextbox("123@456.789");
+		loginPage.inputToPasswordTextbox("123456");
+		loginPage.clickToLoginButton();
+
+		assertEquals(loginPage.getEmailAddressInvalidErrorMessage(),
 				"Please enter a valid email address. For example johndoe@domain.com.");
 
 	}
 
 	@Test(description = "Email not exist in application")
 	public void TC_03_LoginWithIncorrectEmail() {
-		openPageUrl(driver, "http://live.techpanda.org/");
-		clickToElement(driver, "//div[@class='footer']//a[text()='My Account']");
 
-		sendkeyToElement(driver, "//input[@id='email']", "auto_test" + randomNumber() + "@live.com");
-		sendkeyToElement(driver, "//input[@id='pass']", "123456");
-		clickToElement(driver, "//button[@id='send2']");
+		homePage.clickTToMyAccountLink();
+		loginPage = new LoginPageObject(driver);
 
-		assertEquals(getTextElement(driver, "//li[@class='error-msg']//span"),
-				"Invalid login or password.");
+		loginPage.inputToEmailAddressTextbox("auto_test" + randomNumber() + "@live.com");
+		loginPage.inputToPasswordTextbox("123456");
+		loginPage.clickToLoginButton();
+
+		assertEquals(loginPage.getEmailAddressIncorrectErrorMessage(), "Invalid login or password.");
 
 	}
 
 	@Test(description = "Password less than 6 characters")
 	public void TC_04_LoginWithInvalidPassword() {
-		openPageUrl(driver, "http://live.techpanda.org/");
-		clickToElement(driver, "//div[@class='footer']//a[text()='My Account']");
 
-		sendkeyToElement(driver, "//input[@id='email']", "auto_test" + randomNumber() + "@live.com");
-		sendkeyToElement(driver, "//input[@id='pass']", "123");
-		clickToElement(driver, "//button[@id='send2']");
+		homePage.clickTToMyAccountLink();
+		loginPage = new LoginPageObject(driver);
 
-		assertEquals(getTextElement(driver, "//div[@id='advice-validate-password-pass']"),
+		loginPage.inputToEmailAddressTextbox("auto_test" + randomNumber() + "@live.com");
+		loginPage.inputToPasswordTextbox("123");
+		loginPage.clickToLoginButton();
+
+		assertEquals(loginPage.getPasswordInvalidErrorMessage(),
 				"Please enter 6 or more characters without leading or trailing spaces.");
 	}
 
 	@Test
 	public void TC_05_LoginWithIncorrectPassword() {
-		openPageUrl(driver, "http://live.techpanda.org/");
-		clickToElement(driver, "//div[@class='footer']//a[text()='My Account']");
 
-		sendkeyToElement(driver, "//input[@id='email']", "auto_test" + randomNumber() + "@live.com");
-		sendkeyToElement(driver, "//input[@id='pass']", randomNumber() + "");
-		clickToElement(driver, "//button[@id='send2']");
+		homePage.clickTToMyAccountLink();
+		loginPage = new LoginPageObject(driver);
 
-		assertEquals(getTextElement(driver, "//li[@class='error-msg']//span"), "Invalid login or password.");
+		loginPage.inputToEmailAddressTextbox("auto_test" + randomNumber() + "@live.com");
+		loginPage.inputToPasswordTextbox(randomNumber() + "");
+		loginPage.clickToLoginButton();
+
+		assertEquals(loginPage.getPasswordIncorectErrorMessage(), "Invalid login or password.");
 
 	}
 
 	@Test
 	public void TC_06_LoginWithValidEmailAndPassword() {
-		openPageUrl(driver, "http://live.techpanda.org/");
-		clickToElement(driver, "//div[@class='footer']//a[text()='My Account']");
 
-		sendkeyToElement(driver, "//input[@id='email']", "automationfc.vn@gmail.com");
-		sendkeyToElement(driver, "//input[@id='pass']", "123123");
-		clickToElement(driver, "//button[@id='send2']");
+		homePage.clickTToMyAccountLink();
+		loginPage = new LoginPageObject(driver);
 
-		assertTrue(isElementDisplayed(driver,
-				"//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'Automation FC')]"));
-		assertTrue(isElementDisplayed(driver,
-				"//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'automationfc.vn@gmail.com')]"));
+		loginPage.inputToEmailAddressTextbox("automationfc.vn@gmail.com");
+		loginPage.inputToPasswordTextbox("123123");
+		loginPage.clickToLoginButton();
+
+		myDashboardPage = new MyDashBoardPageObject(driver);
+		
+
+		assertTrue(myDashboardPage.getContactNameText());
+		assertTrue(myDashboardPage.getContactConTentText());
 
 	}
+
 
 	@AfterClass
 	public void afterClass() {
