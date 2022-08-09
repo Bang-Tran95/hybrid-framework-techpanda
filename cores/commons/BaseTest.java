@@ -3,9 +3,8 @@ package commons;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	WebDriver driver;
@@ -13,20 +12,28 @@ public class BaseTest {
 	
 
 	public WebDriver getBrowserDriver(String browserName) {
-		switch (browserName) {
-		case "firefox":
-			System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-			driver = new FirefoxDriver();
+		
+		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
+		
+		switch (browserList) {
+		case FIREFOX:
+			// Latest browser driver version
+			driver = WebDriverManager.firefoxdriver().create();
+			
+			//Specific browser driver version (99) ~ browser version (99)
+			//WebDriverManager.firefoxdriver().driverVersion("99.0.444.9").setup();
+			
+			//Base on: Version
+			//WebDriverManager.firefoxdriver().browserVersion("99.109.22.109").setup();
+			
 			break;
 
-		case "chrome":
-			System.setProperty("webdriver.chrome.driver", projectPath + "/browserDrivers/chromedriver");
-			driver = new ChromeDriver();
+		case CHROME:
+			driver = WebDriverManager.chromedriver().create();
 			break;
 
-		case "edge":
-			System.setProperty("webdriver.edge.driver", projectPath + "/browserDrivers/msedgedriver");
-			driver = new EdgeDriver();
+		case EDGE:
+			driver = WebDriverManager.edgedriver().create();
 			break;
 
 		default:
