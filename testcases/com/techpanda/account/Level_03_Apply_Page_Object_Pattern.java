@@ -119,9 +119,8 @@ public class Level_03_Apply_Page_Object_Pattern {
 		myDashboardPage = new MyDashBoardPageObject(driver);
 		
 
-		assertTrue(myDashboardPage.getContactNameText());
-		assertTrue(myDashboardPage.getContactConTentText());
-
+		assertTrue(myDashboardPage.getContactNameTextDisplay("Automation FC"));
+		
 	}
 
 

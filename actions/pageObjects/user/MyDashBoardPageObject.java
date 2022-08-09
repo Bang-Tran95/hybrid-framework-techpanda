@@ -14,14 +14,11 @@ public class MyDashBoardPageObject extends BasePage {
 
 	}
 
-	public boolean getContactNameText() {
+	public boolean getContactNameTextDisplay(String contactInfor) {
 		waitForElementVisible(driver, MyDashBoardPageUI.CONTACT_INFOR_NAME);
-		return true;
+		String actualContactName = getTextElement(driver, MyDashBoardPageUI.CONTACT_INFOR_NAME);
+		return actualContactName.contains(contactInfor);
 	}
 
-	public boolean getContactConTentText() {
-		waitForElementVisible(driver, MyDashBoardPageUI.CONTACT_INFOR_CONTENT);
-		return true;
-	}
 
 }
