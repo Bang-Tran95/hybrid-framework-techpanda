@@ -32,19 +32,19 @@ public class LoginPageObject extends BasePage {
 	}
 
 	public Object getEmailAddressEmptyErrorMessage() {
-		waitForElementVisible(driver, LoginPageUI.EMAIL_ADDRESS_EMPTY_ERROR_MESAGE);
-		return getTextElement(driver, LoginPageUI.EMAIL_ADDRESS_EMPTY_ERROR_MESAGE);
+		waitForElementVisible(driver, LoginPageUI.EMAIL_ADDRESS_EMPTY_ERROR_MESSAGE);
+		return getTextElement(driver, LoginPageUI.EMAIL_ADDRESS_EMPTY_ERROR_MESSAGE);
 	}
 
 	public Object getPasswordAddressEmptyErrorMessage() {
-		waitForElementVisible(driver, LoginPageUI.PASSWORD_ADDRESS_EMPTY_ERROR_MESAGE);
-		return getTextElement(driver, LoginPageUI.PASSWORD_ADDRESS_EMPTY_ERROR_MESAGE);
+		waitForElementVisible(driver, LoginPageUI.PASSWORD_ADDRESS_EMPTY_ERROR_MESSAGE);
+		return getTextElement(driver, LoginPageUI.PASSWORD_ADDRESS_EMPTY_ERROR_MESSAGE);
 	}
 
 
 	public String getEmailAddressInvalidErrorMessage() {
-		waitForElementVisible(driver, LoginPageUI.EMAIL_ADDRESS_INVALID_ERROR_MESAGE);
-		return getTextElement(driver, LoginPageUI.EMAIL_ADDRESS_INVALID_ERROR_MESAGE);
+		waitForElementVisible(driver, LoginPageUI.EMAIL_ADDRESS_INVALID_ERROR_MESSAGE);
+		return getTextElement(driver, LoginPageUI.EMAIL_ADDRESS_INVALID_ERROR_MESSAGE);
 	}
 
 	public String getEmailAddressIncorrectErrorMessage() {
@@ -53,8 +53,8 @@ public class LoginPageObject extends BasePage {
 	}
 
 	public String getPasswordInvalidErrorMessage() {
-		waitForElementVisible(driver, LoginPageUI.PASSWORD_ADDRESS_INVALID_ERROR_MESAGE);
-		return getTextElement(driver, LoginPageUI.PASSWORD_ADDRESS_INVALID_ERROR_MESAGE);
+		waitForElementVisible(driver, LoginPageUI.PASSWORD_ADDRESS_INVALID_ERROR_MESSAGE);
+		return getTextElement(driver, LoginPageUI.PASSWORD_ADDRESS_INVALID_ERROR_MESSAGE);
 	}
 
 	public String getPasswordIncorectErrorMessage() {
