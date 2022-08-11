@@ -1,5 +1,6 @@
 package commons;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,7 @@ public class BaseTest {
 	String projectPath = System.getProperty("user.dir");
 	
 
-	public WebDriver getBrowserDriver(String browserName) {
+	protected WebDriver getBrowserDriver(String browserName) {
 		
 		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
 		
@@ -46,5 +47,10 @@ public class BaseTest {
 		
 		return driver;
 
+	}
+	
+	protected int getrandomNumber() {
+		Random rand = new Random();
+		return rand.nextInt(999999);
 	}
 }

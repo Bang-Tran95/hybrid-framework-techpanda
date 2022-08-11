@@ -2,6 +2,7 @@ package pageUIs.user;
 
 public class MyDashBoardPageUI {
 	
-	public static final String CONTACT_INFOR_NAME = "//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'Automation FC')]";
-
+	public static final String CONTACT_INFOR_NAME = "//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'Ben Tran')]";
+	public static final String ACCOUNT_INFORMATION_LINK ="//a[text()='Account Information']";
+	public static final String ACCOUNT_INFORMATION_SAVED = "//div[@class='dashboard']//span[text()='The account information has been saved.']";
 }

@@ -14,11 +14,10 @@ public class HomePageObject extends BasePage {
 		
 	}
 
-	public void clickTToMyAccountLink() {
+	public LoginPageObject clickTToMyAccountLink() {
 		waitForElementClickable(driver, HomePageUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
-		
-		
+		return PageGeneratorManager.getLoginPage(driver);
 	}
 
 }
