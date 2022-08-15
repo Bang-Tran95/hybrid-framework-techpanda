@@ -2,14 +2,15 @@ package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
+import pageObjects.navigation.SideBarMyAccountPageObject;
 import pageUIs.user.MyDashBoardPageUI;
 
-public class MyDashBoardPageObject extends BasePage {
+public class MyDashBoardPageObject extends SideBarMyAccountPageObject {
 
 	WebDriver driver;
 
 	public MyDashBoardPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 
 	}
@@ -20,15 +21,14 @@ public class MyDashBoardPageObject extends BasePage {
 		return actualContactName.contains(contactInfor);
 	}
 
-	public AccountInformationPageObject clickToAccountInformationLink() {
-		waitForElementClickable(driver, MyDashBoardPageUI.ACCOUNT_INFORMATION_LINK);
-		clickToElement(driver, MyDashBoardPageUI.ACCOUNT_INFORMATION_LINK);
-		return PageGeneratorManager.getAccountInformationPage(driver);
-	}
 
 	public boolean isAccountInformationMessageSavedDisplayed() {
 		waitForElementInVisible(driver, MyDashBoardPageUI.ACCOUNT_INFORMATION_SAVED);
 		return isElementDisplayed(driver, MyDashBoardPageUI.ACCOUNT_INFORMATION_SAVED);
 	}
+
+	
+	
+	
 
 }

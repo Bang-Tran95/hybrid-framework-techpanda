@@ -15,6 +15,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.admin.AdminLoginPageObject;
+import pageObjects.navigation.FooterContainerPageObject;
+import pageObjects.user.PageGeneratorManager;
+import pageObjects.user.UserHomePageObject;
+import pageUIs.admin.AdminBasePageUI;
+
 public class BasePage {
 	
 	public static BasePage getBasePageInsstance() {
@@ -316,7 +322,34 @@ public class BasePage {
 	public void waitForElementClickable(WebDriver driver, String locator) {
 		new WebDriverWait(driver, longTimeout).until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
 	}
+	
+	public FooterContainerPageObject getFooterContainerPage(WebDriver driver) {
+		return new FooterContainerPageObject(driver);
+	}
+	
+	public AdminLoginPageObject openAdminLoginPage(WebDriver driver, String adminUrl) {
+		openPageUrl(driver, adminUrl);
+		return PageGeneratorManager.getAdminLoginPage(driver);
+		
+	}
+	
+	public UserHomePageObject openUserHomePage(WebDriver driver, String userUrl) {
+		openPageUrl(driver, userUrl);
+		return PageGeneratorManager.getUserHomePage(driver);
+		
+	}
+	
+	public AdminLoginPageObject clickToLogOutLink(WebDriver driver) {
+		waitForElementVisible(driver, AdminBasePageUI.LOG_OUT_LINK);
+		clickToElement(driver, AdminBasePageUI.LOG_OUT_LINK);
+		return PageGeneratorManager.getAdminLoginPage(driver);
+	}
+
+	
 
 	private long longTimeout = 30;
+	
+	
+
 
 }

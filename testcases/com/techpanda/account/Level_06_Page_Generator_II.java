@@ -12,15 +12,15 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObjects.user.HomePageObject;
-import pageObjects.user.LoginPageObject;
+import pageObjects.user.UserHomePageObject;
+import pageObjects.user.UserLoginPageObject;
 import pageObjects.user.MyDashBoardPageObject;
 
 public class Level_06_Page_Generator_II extends BaseTest {
 	WebDriver driver;
 
-	HomePageObject homePage;
-	LoginPageObject loginPage;
+	UserHomePageObject homePage;
+	UserLoginPageObject loginPage;
 	MyDashBoardPageObject myDashboardPage;
 
 	@Parameters({"browser"})
@@ -28,13 +28,13 @@ public class Level_06_Page_Generator_II extends BaseTest {
 	public void beforeClass(String browserName) {
 		driver = getBrowserDriver(browserName);
 		
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 	}
 
 	@Test
 	public void TC_01_LoginWithEmptyEmailAndPassword() {
 
-		loginPage =  homePage.clickTToMyAccountLink();
+		loginPage =  homePage.openMyAccountPage();
 		
 		loginPage.inputToEmailAddressTextbox("");
 		loginPage.inputToPasswordTextbox("");
@@ -48,7 +48,7 @@ public class Level_06_Page_Generator_II extends BaseTest {
 	@Test
 	public void TC_02_LoginWithInvalidEmail() {
 
-		loginPage =  homePage.clickTToMyAccountLink();
+		loginPage =  homePage.openMyAccountPage();
 
 		loginPage.inputToEmailAddressTextbox("123@456.789");
 		loginPage.inputToPasswordTextbox("123456");
@@ -62,7 +62,7 @@ public class Level_06_Page_Generator_II extends BaseTest {
 	@Test(description = "Email not exist in application")
 	public void TC_03_LoginWithIncorrectEmail() {
 
-		loginPage =  homePage.clickTToMyAccountLink();
+		loginPage =  homePage.openMyAccountPage();
 
 		loginPage.inputToEmailAddressTextbox("auto_test" + randomNumber() + "@live.com");
 		loginPage.inputToPasswordTextbox("123456");
@@ -75,7 +75,7 @@ public class Level_06_Page_Generator_II extends BaseTest {
 	@Test(description = "Password less than 6 characters")
 	public void TC_04_LoginWithInvalidPassword() {
 
-		loginPage =  homePage.clickTToMyAccountLink();
+		loginPage =  homePage.openMyAccountPage();
 
 		loginPage.inputToEmailAddressTextbox("auto_test" + randomNumber() + "@live.com");
 		loginPage.inputToPasswordTextbox("123");
@@ -88,7 +88,7 @@ public class Level_06_Page_Generator_II extends BaseTest {
 	@Test
 	public void TC_05_LoginWithIncorrectPassword() {
 
-		loginPage =  homePage.clickTToMyAccountLink();
+		loginPage =  homePage.openMyAccountPage();
 
 		loginPage.inputToEmailAddressTextbox("auto_test" + randomNumber() + "@live.com");
 		loginPage.inputToPasswordTextbox(randomNumber() + "");
@@ -101,7 +101,7 @@ public class Level_06_Page_Generator_II extends BaseTest {
 	@Test
 	public void TC_06_LoginWithValidEmailAndPassword() {
 
-		loginPage =  homePage.clickTToMyAccountLink();
+		loginPage =  homePage.openMyAccountPage();
 
 		loginPage.inputToEmailAddressTextbox("automationfc.vn@gmail.com");
 		loginPage.inputToPasswordTextbox("123123");

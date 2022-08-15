@@ -2,16 +2,17 @@ package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
+import pageObjects.navigation.SideBarMyAccountPageObject;
 import pageUIs.user.AccountInformationPageUI;
 
-public class AccountInformationPageObject extends BasePage {
-	
+public class AccountInformationPageObject extends SideBarMyAccountPageObject {
+
 	WebDriver driver;
-	
+
 	public AccountInformationPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
-		
+
 	}
 
 	public void inputToFirstNameTextbox(String firstname) {
@@ -22,19 +23,19 @@ public class AccountInformationPageObject extends BasePage {
 	public void inputToLastNameTextbox(String lastname) {
 		waitForElementVisible(driver, AccountInformationPageUI.LAST_NAME_TEXTBOX);
 		sendkeyToElement(driver, AccountInformationPageUI.LAST_NAME_TEXTBOX, lastname);
-		
+
 	}
 
 	public void inputToEmailAddressTextbox(String emailaddress) {
 		waitForElementVisible(driver, AccountInformationPageUI.EMAIL_ADDRESS_TEXTBOX);
 		sendkeyToElement(driver, AccountInformationPageUI.EMAIL_ADDRESS_TEXTBOX, emailaddress);
-		
+
 	}
 
 	public void inputCurentPasswordTextbox(String curentpassword) {
 		waitForElementVisible(driver, AccountInformationPageUI.CURRENT_PASSWORD_TEXTBOX);
 		sendkeyToElement(driver, AccountInformationPageUI.CURRENT_PASSWORD_TEXTBOX, curentpassword);
-		
+
 	}
 
 	public MyDashBoardPageObject clickToSaveButton() {
@@ -43,5 +44,6 @@ public class AccountInformationPageObject extends BasePage {
 		return PageGeneratorManager.getMyDashBoardPage(driver);
 	}
 
-}
+	
 
+}
