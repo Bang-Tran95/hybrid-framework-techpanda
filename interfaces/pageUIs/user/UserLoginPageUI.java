@@ -2,14 +2,14 @@ package pageUIs.user;
 
 public class UserLoginPageUI {
 	
-	public static final String EMAIL_ADDRESS_TEXTBOX = "//input[@id='email']";
-	public static final String PASSWORD_TEXTBOX = "//input[@id='pass']";
-	public static final String LOGIN_BUTTON = "//button[@id='send2']";
-	public static final String EMAIL_ADDRESS_EMPTY_ERROR_MESSAGE= "//div[@id='advice-required-entry-email']";	
-	public static final String EMAIL_ADDRESS_INVALID_ERROR_MESSAGE= "//div[@id='advice-validate-email-email']";
-	public static final String PASSWORD_ADDRESS_EMPTY_ERROR_MESSAGE= "//div[@id='advice-required-entry-pass']";	
-	public static final String PASSWORD_ADDRESS_INVALID_ERROR_MESSAGE= "//div[@id='advice-validate-password-pass']";
-	public static final String EMAIL_ADDRESS_INCORRECT_ERROR_MESSAGE= "//li[@class='error-msg']//span";
+	public static final String EMAIL_ADDRESS_TEXTBOX = "xpath=//input[@id='email']";
+	public static final String PASSWORD_TEXTBOX = "xpath=//input[@id='pass']";
+	public static final String LOGIN_BUTTON = "xpath=//button[@id='send2']";
+	public static final String EMAIL_ADDRESS_EMPTY_ERROR_MESSAGE= "xpath=//div[@id='advice-required-entry-email']";	
+	public static final String EMAIL_ADDRESS_INVALID_ERROR_MESSAGE= "xpath=//div[@id='advice-validate-email-email']";
+	public static final String PASSWORD_ADDRESS_EMPTY_ERROR_MESSAGE= "xpath=//div[@id='advice-required-entry-pass']";	
+	public static final String PASSWORD_ADDRESS_INVALID_ERROR_MESSAGE= "xpath=//div[@id='advice-validate-password-pass']";
+	public static final String EMAIL_ADDRESS_INCORRECT_ERROR_MESSAGE= "xpath=//li[@class='error-msg']//span";
 
 
 }
