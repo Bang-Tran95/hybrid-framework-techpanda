@@ -20,6 +20,7 @@ import pageObjects.navigation.FooterContainerPageObject;
 import pageObjects.user.PageGeneratorManager;
 import pageObjects.user.UserHomePageObject;
 import pageUIs.admin.AdminBasePageUI;
+import pageUIs.jQuery.HomePageUI;
 
 public class BasePage {
 
@@ -389,8 +390,25 @@ public class BasePage {
 		new WebDriverWait(driver, longTimeout).until(ExpectedConditions.elementToBeClickable(getByLocator(locator)));
 	}
 	
+	public void waitForElementClickable(WebDriver driver, WebElement element) {
+		new WebDriverWait(driver, longTimeout).until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
 	public void waitForElementClickable(WebDriver driver, String locator, String...dynamicLocator) {
 		new WebDriverWait(driver, longTimeout).until(ExpectedConditions.elementToBeClickable(getByLocator(castRestParameter(locator, dynamicLocator))));
+	}
+	
+	public void uploadMultipleFiles(WebDriver driver, String...fileNames) {
+		//Đường dẫn đến thư mục upload file
+		String uploadFilePath = GlobalConstants.UPLOAD_PATH;
+		String fullFileName = "";
+		
+		for(String file : fileNames) {
+			fullFileName = fullFileName + uploadFilePath + file + "\n";
+		}
+		fullFileName = fullFileName.trim();
+		getWebElement(driver, HomePageUI.UPLOAD_FILE_TYPE).sendKeys(fullFileName);
+		
 	}
 
 	public FooterContainerPageObject getFooterContainerPage(WebDriver driver) {

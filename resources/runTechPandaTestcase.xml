@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Tech Panda">
 
-	<parameter name="Url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/" />
+	<parameter name="url" value="https://blueimp.github.io/jQuery-File-Upload/" />
 
 	<test name="Run on FIREFOX Browser">
 	<parameter name="browser" value="firefox" />
 	<classes>
-		<class name="com.jquery.dataTable.Level_12_DataTable" />
+		<class name="com.jquery.upload.Level_13_Upload_File" />
 	</classes>
 </test>
 

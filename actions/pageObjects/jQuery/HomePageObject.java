@@ -1,7 +1,11 @@
 package pageObjects.jQuery;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import commons.BasePage;
 import pageUIs.jQuery.HomePageUI;
@@ -40,6 +44,28 @@ public class HomePageObject extends BasePage {
 	public boolean isPageNumberActived(String pageNumber) {
 		waitForElementVisible(driver, HomePageUI.PAGING_ACTIVE_BY_PAGE_NUMBER, pageNumber);
 		return isElementDisplayed(driver, HomePageUI.PAGING_ACTIVE_BY_PAGE_NUMBER, pageNumber);
+	}
+
+	//Upload File
+	public boolean isFileNameLoadedSuccess(String fileName) {
+		waitForElementVisible(driver, HomePageUI.IMAGE_FILE_NAME_LOADED, fileName);
+		return isElementDisplayed(driver, HomePageUI.IMAGE_FILE_NAME_LOADED, fileName);
+	}
+
+	public void clickToStartButton() {
+		List<WebElement> startButtonElements = getListElements(driver, HomePageUI.START_BUTTON);
+		
+		for (WebElement startButton: startButtonElements) {
+			waitForElementClickable(driver, startButton);
+			startButton.click();
+			sleepInSecond(2);
+			
+		}
+	}
+
+	public boolean isFileUploadedSuccess(String fileName) {
+		waitForElementVisible(driver, HomePageUI.IMAGE_FILE_NAME_UPLOADED, fileName);
+		return isElementDisplayed(driver, HomePageUI.IMAGE_FILE_NAME_UPLOADED, fileName);
 	}
 
 }
