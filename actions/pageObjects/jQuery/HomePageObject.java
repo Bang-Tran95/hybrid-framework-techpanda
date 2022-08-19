@@ -1,6 +1,5 @@
 package pageObjects.jQuery;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.openqa.selenium.Keys;

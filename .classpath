@@ -36,12 +36,17 @@
 	<classpathentry kind="lib" path="libWebDriverManager/jackson-annotations-2.10.3.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/jackson-core-2.10.3.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/jackson-databind-2.10.3.jar"/>
-	<classpathentry kind="lib" path="libWebDriverManager/jcl-over-slf4j-1.7.30.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/jna-5.8.0.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/jsoup-1.14.2.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/jsr305-3.0.2.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/slf4j-api-1.7.32.jar"/>
 	<classpathentry kind="lib" path="libWebDriverManager/webdrivermanager-5.0.2.jar"/>
+	<classpathentry kind="lib" path="libraries/commons-lang3-3.8.1.jar"/>
+	<classpathentry kind="lib" path="libraries/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="libraries/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="libLog4J/commons-lang3-3.8.1.jar"/>
+	<classpathentry kind="lib" path="libLog4J/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="libLog4J/log4j-1.2.16.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

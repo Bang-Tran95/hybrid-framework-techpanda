@@ -3,6 +3,8 @@ package commons;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -10,8 +12,14 @@ import org.testng.Reporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
+
 	WebDriver driver;
-	String projectPath = System.getProperty("user.dir");
+	protected final Log log;
+
+	public BaseTest() {
+
+		log = LogFactory.getLog(getClass());
+	}
 
 	protected WebDriver getBrowserDriver(String browserName) {
 
@@ -89,10 +97,12 @@ public class BaseTest {
 		boolean status = true;
 		try {
 			Assert.assertTrue(condition);
+			log.info("----------------------------Passed-------------------------");
 		} catch (Throwable e) {
 			status = false;
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
+			log.info("----------------------------Failed-------------------------");
 		}
 		return status;
 	}
@@ -101,10 +111,12 @@ public class BaseTest {
 		boolean status = true;
 		try {
 			Assert.assertFalse(condition);
+			log.info("----------------------------Passed-------------------------");
 		} catch (Throwable e) {
 			status = false;
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
+			log.info("----------------------------Failed-------------------------");
 		}
 		return status;
 	}
@@ -112,11 +124,13 @@ public class BaseTest {
 	protected boolean verifyEquals(Object actual, Object expected) {
 		boolean status = true;
 		try {
-			Assert.assertEquals(actual,expected);
+			Assert.assertEquals(actual, expected);
+			log.info("----------------------------Passed-------------------------");
 		} catch (Throwable e) {
 			status = false;
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
+			log.info("----------------------------Failed-------------------------");
 		}
 		return status;
 	}

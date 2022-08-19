@@ -10,7 +10,7 @@
 	<test name="Run on FIREFOX Browser">
 	<parameter name="browser" value="firefox" />
 	<classes>
-		<class name="com.techpanda.account.Level_14_Assert_Verify" />
+		<class name="com.techpanda.account.Level_15_Log" />
 	</classes>
 </test>
 
