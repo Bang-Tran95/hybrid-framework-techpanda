@@ -1,6 +1,7 @@
 package com.techpanda.account;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -13,7 +14,7 @@ import pageObjects.user.PageGeneratorManager;
 import pageObjects.user.UserHomePageObject;
 import pageObjects.user.UserLoginPageObject;
 
-public class Level_15_Log extends BaseTest {
+public class Level_16_Log_ReportNG extends BaseTest {
 	WebDriver driver;
 
 	UserHomePageObject homePage;
@@ -45,10 +46,10 @@ public class Level_15_Log extends BaseTest {
 		loginPage.clickToLoginButton();
 
 		log.info("Login_01 - Step 05: Verify Email Address Empty Error Message");
-		verifyEquals(loginPage.getEmailAddressEmptyErrorMessage(), "This is a required field.");
+		Assert.assertEquals(loginPage.getEmailAddressEmptyErrorMessage(), "This is a required field.");
 		
 		log.info("Login_01 - Step 05: Verify PassWord Empty Error Message");
-		verifyEquals(loginPage.getPasswordAddressEmptyErrorMessage(), "This is a required field.");
+		Assert.assertEquals(loginPage.getPasswordAddressEmptyErrorMessage(), "This is a required field.");
 
 	}
 
@@ -67,7 +68,7 @@ public class Level_15_Log extends BaseTest {
 		loginPage.clickToLoginButton();
 
 		log.info("Login_01 - Step 05: Verify Email Address Invalid Error Message");
-		verifyEquals(loginPage.getEmailAddressInvalidErrorMessage(),
+		Assert.assertEquals(loginPage.getEmailAddressInvalidErrorMessage(),
 				"Please enter a valid email address. For example johndoe@domain.com.");
 
 	}
@@ -87,7 +88,7 @@ public class Level_15_Log extends BaseTest {
 		loginPage.clickToLoginButton();
 
 		log.info("Login_03 - Step 05: Verify Email not exist in application");
-		verifyEquals(loginPage.getEmailAddressIncorrectErrorMessage(), "Invalid login or password.");
+		Assert.assertEquals(loginPage.getEmailAddressIncorrectErrorMessage(), "Invalid login or password.");
 
 	}
 
@@ -106,7 +107,7 @@ public class Level_15_Log extends BaseTest {
 		loginPage.clickToLoginButton();
 		
 		log.info("Login_04 - Step 05: Verify Password invalid error message");
-		verifyEquals(loginPage.getPasswordInvalidErrorMessage(),
+		Assert.assertEquals(loginPage.getPasswordInvalidErrorMessage(),
 				"Please enter 6 or more characters without leading or trailing spaces.");
 	}
 
@@ -125,7 +126,7 @@ public class Level_15_Log extends BaseTest {
 		loginPage.clickToLoginButton();
 
 		log.info("Login_05 - Step 05: Verify Password invalid error message");
-		verifyEquals(loginPage.getPasswordIncorectErrorMessage(), "Invalid login or password.");
+		Assert.assertEquals(loginPage.getPasswordIncorectErrorMessage(), "Invalid login or password.");
 
 	}
 
@@ -144,7 +145,7 @@ public class Level_15_Log extends BaseTest {
 		myDashboardPage = loginPage.clickToLoginButton();
 
 		log.info("Login_05 - Step 05: Verify Login success");
-		verifyTrue(myDashboardPage.getContactNameTextDisplay("Ben Tran!"));
+		Assert.assertTrue(myDashboardPage.getContactNameTextDisplay("Ben Tran!"));
 
 	}
 

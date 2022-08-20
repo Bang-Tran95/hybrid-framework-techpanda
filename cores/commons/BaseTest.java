@@ -1,5 +1,6 @@
 package commons;
 
+import java.io.File;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -8,12 +9,13 @@ import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 
-	WebDriver driver;
+	private WebDriver driver;
 	protected final Log log;
 
 	public BaseTest() {
@@ -133,5 +135,33 @@ public class BaseTest {
 			log.info("----------------------------Failed-------------------------");
 		}
 		return status;
+	}
+	
+	@BeforeSuite
+	public void deleteAllFilesInReportNGScreenshot() {
+		System.out.println("---------- START delete file in folder ----------");
+		deleteAllFileInFolder();
+		System.out.println("---------- END delete file in folder ----------");
+	}
+
+
+	public void deleteAllFileInFolder() {
+		try {
+			
+			File file = new File(GlobalConstants.REPORTNG_SCREENSHOT_PATH);
+			File[] listOfFiles = file.listFiles();
+			for (int i = 0; i < listOfFiles.length; i++) {
+				if (listOfFiles[i].isFile()) {
+					System.out.println(listOfFiles[i].getName());
+					new File(listOfFiles[i].toString()).delete();
+				}
+			}
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+		}
+	}
+
+	public WebDriver getDriver() {
+		return this.driver;
 	}
 }

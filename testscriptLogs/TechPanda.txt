@@ -1,11 +1,31 @@
-[INFO ] [2022-08-19 18:10:45,437] Login_01 - Step 01: Click to My Account Link
-[INFO ] [2022-08-19 18:10:46,693] Login_01 - Step 02: Enter to Email Address textbox with empty data
-[INFO ] [2022-08-19 18:10:46,798] Login_01 - Step 03: Enter to Password textbox with empty data
-[INFO ] [2022-08-19 18:10:46,889] Login_01 - Step 04: Enter to Login Button
-[INFO ] [2022-08-19 18:10:47,218] Login_01 - Step 05: Verify Email Address Empty Error Message
-[INFO ] [2022-08-19 18:10:47,279] Login_01 - Step 05: Verify PassWord Empty Error Message
-[INFO ] [2022-08-19 18:10:47,360] Login_02 - Step 01: Click to My Account Link
-[INFO ] [2022-08-19 18:10:48,526] Login_02 - Step 02: Enter to Email Address textbox with empty data
-[INFO ] [2022-08-19 18:10:48,592] Login_02 - Step 03: Enter to Password textbox with empty data
-[INFO ] [2022-08-19 18:10:48,716] Login_02 - Step 04: Enter to Login Button
-[INFO ] [2022-08-19 18:10:49,038] Login_01 - Step 05: Verify Email Address Invalid Error Message
+[INFO ] [2022-08-20 15:13:25,967] Login_01 - Step 01: Click to My Account Link
+[INFO ] [2022-08-20 15:13:28,832] Login_01 - Step 02: Enter to Email Address textbox with empty data
+[INFO ] [2022-08-20 15:13:29,016] Login_01 - Step 03: Enter to Password textbox with empty data
+[INFO ] [2022-08-20 15:13:29,242] Login_01 - Step 04: Enter to Login Button
+[INFO ] [2022-08-20 15:13:29,516] Login_01 - Step 05: Verify Email Address Empty Error Message
+[INFO ] [2022-08-20 15:13:29,606] Login_01 - Step 05: Verify PassWord Empty Error Message
+[INFO ] [2022-08-20 15:13:29,686] Login_02 - Step 01: Click to My Account Link
+[INFO ] [2022-08-20 15:13:31,924] Login_02 - Step 02: Enter to Email Address textbox
+[INFO ] [2022-08-20 15:13:32,758] Login_02 - Step 03: Enter to Password textbox
+[INFO ] [2022-08-20 15:13:33,355] Login_02 - Step 04: Enter to Login Button
+[INFO ] [2022-08-20 15:13:33,623] Login_01 - Step 05: Verify Email Address Invalid Error Message
+[INFO ] [2022-08-20 15:13:33,714] Login_03 - Step 01: Click to My Account Link
+[INFO ] [2022-08-20 15:13:35,338] Login_03 - Step 02: Enter to Email Address textbox
+[INFO ] [2022-08-20 15:13:35,428] Login_03 - Step 03: Enter to Password textbox
+[INFO ] [2022-08-20 15:13:35,884] Login_03 - Step 04: Enter to Login Button
+[INFO ] [2022-08-20 15:13:37,689] Login_03 - Step 05: Verify Email not exist in application
+[INFO ] [2022-08-20 15:13:37,770] Login_04 - Step 01: Click to My Account Link
+[INFO ] [2022-08-20 15:13:38,871] Login_04 - Step 02: Enter to Email Address textbox
+[INFO ] [2022-08-20 15:13:38,974] Login_04 - Step 03: Enter to Password textbox, less than 6 characters
+[INFO ] [2022-08-20 15:13:39,544] Login_04 - Step 04: Enter to Login Button
+[INFO ] [2022-08-20 15:13:39,730] Login_04 - Step 05: Verify Password invalid error message
+[INFO ] [2022-08-20 15:13:39,928] Login_05 - Step 01: Click to My Account Link
+[INFO ] [2022-08-20 15:13:41,027] Login_05 - Step 02: Enter to Email Address textbox
+[INFO ] [2022-08-20 15:13:41,661] Login_05 - Step 03: Enter to Password textbox
+[INFO ] [2022-08-20 15:13:41,776] Login_05 - Step 04: Enter to Login Button
+[INFO ] [2022-08-20 15:13:41,852] Login_05 - Step 05: Verify Password invalid error message
+[INFO ] [2022-08-20 15:14:13,414] Login_05 - Step 01: Click to My Account Link
+[INFO ] [2022-08-20 15:14:15,841] Login_05 - Step 02: Enter to Email Address textbox
+[INFO ] [2022-08-20 15:14:16,015] Login_05 - Step 03: Enter to Password textbox
+[INFO ] [2022-08-20 15:14:16,601] Login_05 - Step 04: Enter to Login Button
+[INFO ] [2022-08-20 15:14:19,743] Login_05 - Step 05: Verify Login success
