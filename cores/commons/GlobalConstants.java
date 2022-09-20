@@ -5,6 +5,8 @@ public class GlobalConstants {
 	// System infor
 	public static final String PROJECT_PATH = System.getProperty("user.dir");
 	public static final String OS_NAME = System.getProperty("os.name");
+	public static final String JAVA_VERSION = System.getProperty("java.version") ;
+
 
 	// App Infor User
 	public static final String DEV_USER_URL = "";
@@ -35,6 +37,7 @@ public class GlobalConstants {
 	public static final String REPORTNG_SCREENSHOT_PATH = PROJECT_PATH + "/ReportNGScreenShots/";
 	public static final String EXTENT_PATH = PROJECT_PATH + "/htmlExtent/";
 	public static final String ALLURE_PATH = PROJECT_PATH + "/htmlAllure/";
+
 	
 	//Retry Case
 	public static final int RETRY_NUMBER = 3;
