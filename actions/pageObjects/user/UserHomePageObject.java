@@ -2,6 +2,7 @@ package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
+import io.qameta.allure.Step;
 import pageObjects.navigation.SideBarMyAccountPageObject;
 import pageUIs.user.UserHomePageUI;
 
@@ -14,7 +15,7 @@ public class UserHomePageObject extends SideBarMyAccountPageObject {
 		this.driver = driver;
 		
 	}
-
+	@Step("Open My Account Link")
 	public UserLoginPageObject openMyAccountPage() {
 		waitForElementClickable(driver, UserHomePageUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, UserHomePageUI.MY_ACCOUNT_LINK);
